@@ -1,4 +1,5 @@
 #!/usr/bin/python3
-for i in range(ord('a'), ord('z')+1):
-    if i not in (ord('q'), ord('e')):
-        print("{:c}".format(i), end="")
+result = ""
+for i in range(99):
+    result += "{} = 0x{:x}\n".format(i, i)
+print(result, end="")
