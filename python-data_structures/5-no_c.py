@@ -8,6 +8,6 @@ def no_c(my_string):
         # Agregar el carácter a la lista solo si no es 'c' ni 'C'
         if char != 'c' and char != 'C':
             new_string.append(char)
-    
+
     # Unir la lista en una nueva cadena
     return ''.join(new_string)
