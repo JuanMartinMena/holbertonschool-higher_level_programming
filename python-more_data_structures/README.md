@@ -18,9 +18,6 @@
     - `deepcopy()`: To create a complete copy that includes independent copies of the internal objects, you can use the `copy` module and the `deepcopy()` function. This is useful if you need an independent copy where changes to the new object do not affect the original or its internal elements.
     - `join()`: **`''.join(new_string)`**: Joins all characters in `new_string` into a single string with no separator between them.
 
-Example:
-
-![List Example](https://prod-files-secure.s3.us-west-2.amazonaws.com/f0bfdea0-f2d2-4741-9115-17f159793b1a/67f5e434-08d2-4309-86c8-c9ff70647b7c/image.png)
 
 ---
 
@@ -36,9 +33,6 @@ Example:
     - `count(x)`: Returns the number of times `x` appears in the tuple.
     - `index(x)`: Returns the first position of `x` in the tuple.
     - **Note:** No methods like `append()` or `remove()` since tuples are immutable.
-- **Example:**
-
-![Tuple Example](https://prod-files-secure.s3.us-west-2.amazonaws.com/f0bfdea0-f2d2-4741-9115-17f159793b1a/5d87153a-e6e4-43a5-9de2-7992ed4b3357/image.png)
 
 ### Key Differences Between Lists and Tuples:
 
