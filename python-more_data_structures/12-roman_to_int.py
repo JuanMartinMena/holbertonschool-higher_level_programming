@@ -9,7 +9,7 @@ def roman_to_int(roman_string):
     for simbolo in roman_string:
         valor_actual = valores[simbolo]
         if valor_actual > valor_anterior:
-            total += valor_anterior - 2 * valor_actual
+            total += valor_actual - 2 * valor_anterior
         else:
             total += valor_actual
         valor_anterior = valor_actual
