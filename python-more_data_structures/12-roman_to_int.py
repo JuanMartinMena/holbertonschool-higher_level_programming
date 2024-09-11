@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    # Lo que tengo que hacer es recorrer el string y 
+    # Lo que tengo que hacer es recorrer el string y
     # que mientras que la letra de la izquierda sea de mayor valor
     # que la que esta en la derecha o igual se suman, sino se resta
     if not isinstance(roman_string, str):
