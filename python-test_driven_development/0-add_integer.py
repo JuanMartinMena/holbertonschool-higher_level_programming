@@ -4,6 +4,7 @@ This module defines a function that adds two integers.
 The function add_integer(a, b=98) adds two integers or floats.
 """
 
+
 def add_integer(a, b=98):
     """
     Adds two integers or floats, casting floats to integers before adding.
@@ -25,5 +26,5 @@ def add_integer(a, b=98):
 
     a = int(a)
     b = int(b)
-    
+
     return a + b
