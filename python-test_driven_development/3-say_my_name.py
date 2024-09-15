@@ -4,7 +4,7 @@ Module: 3-say_my_name
 
 This module contains a single function that prints the name provided by the user.
 The function ensures that both the first name and last name are strings before
-printing the formatted name.
+printing the formatted name
 
 Function:
     - say_my_name: Prints "My name is <first_name> <last_name>" if inputs are valid.
