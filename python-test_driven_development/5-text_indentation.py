@@ -18,9 +18,11 @@ def text_indentation(text):
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    
-    i = 0
+
+    text = text.strip()
     length = len(text)
+    i = 0
+
     while i < length:
         print(text[i], end="")
         if text[i] in {'.', '?', ':'}:
