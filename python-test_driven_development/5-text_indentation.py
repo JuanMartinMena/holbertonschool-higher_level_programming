@@ -5,6 +5,7 @@
 Contains the `text_indentation` function that processes and prints a text with 
 two new lines after each '.', '?', and ':'.
 """
+
 def text_indentation(text):
     """
     Prints text with 2 new lines after each '.', '?', and ':'.
@@ -20,10 +21,8 @@ def text_indentation(text):
     
     i = 0
     length = len(text)
-    
     while i < length:
         print(text[i], end="")
-        
         if text[i] in {'.', '?', ':'}:
             print("\n")
             while i + 1 < length and text[i + 1] == ' ':
