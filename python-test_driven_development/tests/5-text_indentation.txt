@@ -1,0 +1,34 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> import io
+>>> import sys
+
+>>> def capture_output(text):
+...     buffer = io.StringIO()
+...     sys.stdout = buffer
+...     text_indentation(text)
+...     sys.stdout = sys.__stdout__
+...     return buffer.getvalue()
+
+>>> print(capture_output("Hello. How are you? I am fine."))
+Hello.
+
+How are you?
+
+I am fine.
+
+>>> print(capture_output("One line. Another line: Yet another line?"))
+One line.
+
+Another line:
+
+Yet another line?
+
+>>> print(capture_output("No punctuation here"))
+No punctuation here
+
+>>> print(capture_output("Mixed punctuation. Followed by more punctuation? And another:"))
+Mixed punctuation.
+
+Followed by more punctuation?
+
+And another:
