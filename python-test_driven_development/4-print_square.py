@@ -2,7 +2,7 @@
 """
 Module: 4-print_square
 This module contains a function that prints
-a square with the character #
+a square with the character #.
 """
 
 
