@@ -30,7 +30,7 @@ class Square:
     def size(self):
         """
         Método getter para obtener el valor de `__size`.
-        
+
         Returns:
             int: El tamaño del cuadrado.
         """
