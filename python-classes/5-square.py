@@ -7,7 +7,8 @@ Este módulo define una clase `Square` que representa un cuadrado.
 class Square:
     """
     Clase que define un cuadrado con un atributo privado de tamaño, métodos
-    getter y setter, y métodos para calcular el área y para imprimir el cuadrado.
+    getter y setter, y métodos para
+    calcular el área y para imprimir el cuadrado.
 
     Atributos:
         __size (int): El tamaño del cuadrado.
