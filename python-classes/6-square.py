@@ -6,12 +6,15 @@ Este módulo define una clase `Square` que representa un cuadrado.
 
 class Square:
     """
-    Clase que define un cuadrado con atributos privados de tamaño y posición, métodos
-    getter y setter, y métodos para calcular el área y para imprimir el cuadrado.
+    Clase que define un cuadrado
+    con atributos privados de tamaño y posición, métodos
+    getter y setter, y métodos para
+    calcular el área y para imprimir el cuadrado.
 
     Atributos:
         __size (int): El tamaño del cuadrado.
-        __position (tuple): La posición de inicio de la impresión del cuadrado.
+        __position (tuple): La posición
+        de inicio de la impresión del cuadrado.
     """
 
     def __init__(self, size=0, position=(0, 0)):
@@ -19,11 +22,14 @@ class Square:
         Inicializa una nueva instancia de la clase Square.
 
         Args:
-            size (int): El tamaño del cuadrado (opcional, valor por defecto 0).
-            position (tuple): La posición del cuadrado (opcional, valor por defecto (0, 0)).
+            size (int): El tamaño del
+            cuadrado (opcional, valor por defecto 0).
+            position (tuple): La posición
+            del cuadrado (opcional, valor por defecto (0, 0)).
 
         Raises:
-            TypeError: Si size no es un entero o position no es una tupla de 2 enteros positivos.
+            TypeError: Si size no es un
+            entero o position no es una tupla de 2 enteros positivos.
             ValueError: Si size es menor que 0.
         """
         self.size = size
@@ -101,9 +107,7 @@ class Square:
         if self.__size == 0:
             print("")
         else:
-            # Imprime las líneas vacías antes del cuadrado según la posición en y (position[1])
             for _ in range(self.__position[1]):
                 print("")
-            # Imprime cada línea del cuadrado con los espacios según position[0]
             for _ in range(self.__size):
                 print(" " * self.__position[0] + "#" * self.__size)
