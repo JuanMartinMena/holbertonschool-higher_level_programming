@@ -7,7 +7,8 @@ Este módulo define una clase Rectangle que representa un rectángulo.
 class Rectangle:
     """
     Clase que define un rectángulo con ancho y altura privados.
-    También mantiene un conteo de instancias y un símbolo para la representación.
+    También mantiene un conteo de instancias y un símbolo
+    para la representación.
     """
 
     number_of_instances = 0
