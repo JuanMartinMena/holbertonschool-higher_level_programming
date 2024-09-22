@@ -78,4 +78,4 @@ class Rectangle:
         Retorna una representación oficial del rectángulo que permite
         recrear la instancia usando eval().
         """
-        return f"Rectangle({self.__width}, {self.__height})"
+        return f"<{self.__class__.__module__}.{self.__class__.__name__} object at {hex(id(self))}>"
