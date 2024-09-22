@@ -3,6 +3,7 @@
 Este módulo define una clase Rectangle que representa un rectángulo.
 """
 
+
 class Rectangle:
     """
     Clase que define un rectángulo con ancho y altura privados.
