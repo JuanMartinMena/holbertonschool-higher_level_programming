@@ -78,5 +78,5 @@ class Rectangle:
         Retorna una representación oficial del rectángulo que permite
         recrear la instancia usando eval().
         """
-        return f"<{self.__class__.__module__}.{self.__class__.__name__} " \
-           f"object at {hex(id(self))}>"
+        return (f"<{self.__class__.__module__}.{self.__class__.__name__} "
+                f"object at {hex(id(self))}>")
