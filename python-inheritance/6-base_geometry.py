@@ -3,6 +3,7 @@
 Este módulo define una clase BaseGeometry.
 """
 
+
 class BaseGeometry:
     """
     Clase BaseGeometry que define métodos de geometría.
