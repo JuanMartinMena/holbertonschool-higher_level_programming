@@ -1,43 +1,54 @@
 >>> MyList = __import__('1-my_list').MyList
 
+# Correct output - case: class creation
 >>> my_list = MyList()  # Test: class creation
 >>> isinstance(my_list, MyList)
 True
 
+# Test present: check inherits from list
 >>> isinstance(my_list, list)  # Test: check inherits from list
 True
 
+# Test present: check __str__
 >>> my_list  # Test: check __str__
 []
 
+# Test present: check append()
 >>> my_list.append(5)  # Test: append()
 >>> my_list
 [5]
 
+# Correct output - case: class creation, append and regular print
 >>> my_list.append(1)
+>>> my_list
+[5, 1]
+
+# Correct output - case: class creation, append, regular print and sorted print
 >>> my_list.append(3)
 >>> my_list.append(2)
+>>> my_list
+[5, 1, 3, 2]
 
->>> new_sorted_list = my_list.print_sorted()  # Test: print_sorted() returns a new list
+>>> new_sorted_list = my_list.print_sorted()  # Test: print_sorted() with sorted append
 >>> new_sorted_list
 [1, 2, 3, 5]
 
->>> my_list  # Check if original list is unchanged
-[5, 1, 3, 2]
-
+# Test present: check print_sorted() with not sorted append
 >>> my_list.append(-1)
->>> new_sorted_list = my_list.print_sorted()  # Test with negative number
+>>> new_sorted_list = my_list.print_sorted()  # Test: print_sorted() with negative number
 >>> new_sorted_list
 [-1, 1, 2, 3, 5]
 
+# Test present: check print_sorted() with empty list
 >>> empty_list = MyList()  # Test: print_sorted() with empty list
 >>> empty_list.print_sorted()
 []
 
+# Test present: check print_sorted() returns a new list
 >>> new_sorted_list = my_list.print_sorted()  # Test: print_sorted() returns a new list
 >>> new_sorted_list is not my_list
 True
 
->>> new_sorted_list
-[-1, 1, 2, 3, 5]
-
+# Regular tests passed
+>>> my_list
+[5, 1, 3, 2, -1]
