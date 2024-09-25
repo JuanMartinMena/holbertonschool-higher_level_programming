@@ -1,0 +1,32 @@
+>>> BaseGeometry = __import__('base_geometry').BaseGeometry
+
+# Test present: check instantiation
+>>> bg = BaseGeometry()
+>>> isinstance(bg, BaseGeometry)
+True
+
+# Test present: check area() raises Exception
+>>> bg.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
+
+# Test present: check integer_validator with valid input
+>>> bg.integer_validator("test_value", 10)
+
+# Test present: check integer_validator raises TypeError for non-integer
+>>> bg.integer_validator("test_value", "string")
+Traceback (most recent call last):
+    ...
+TypeError: test_value must be an integer
+
+# Test present: check integer_validator raises ValueError for <= 0
+>>> bg.integer_validator("test_value", 0)
+Traceback (most recent call last):
+    ...
+ValueError: test_value must be greater than 0
+
+>>> bg.integer_validator("test_value", -5)
+Traceback (most recent call last):
+    ...
+ValueError: test_value must be greater than 0
