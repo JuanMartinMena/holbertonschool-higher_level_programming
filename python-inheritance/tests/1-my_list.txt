@@ -1,3 +1,5 @@
+>>> from 1-my_list import MyList  # Importar la clase MyList
+
 >>> my_list = MyList()  # Test: class creation
 >>> isinstance(my_list, MyList)
 True
@@ -6,14 +8,30 @@ True
 True
 
 >>> my_list  # Test: check __str__
-MyList([])
+[]
 
 >>> my_list.append(5)  # Test: append()
 >>> my_list
-MyList([5])
+[5]
 
 >>> my_list.append(1)
 >>> my_list.append(3)
 >>> my_list.append(2)
->>> my_list.append(4)
->>> my_list.print_sorted()  # Test: print_sorted
+
+>>> my_list.print_sorted()  # Test: print_sorted()
+[1, 2, 3, 5]
+
+>>> my_list  # Check if original list is unchanged
+[5, 1, 3, 2]
+
+>>> my_list.append(-1)
+>>> my_list.print_sorted()  # Test with negative number
+[-1, 1, 2, 3, 5]
+
+>>> empty_list = MyList()  # Test: print_sorted() with empty list
+>>> empty_list.print_sorted()
+[]
+
+>>> new_sorted_list = my_list.print_sorted()  # Test: print_sorted() returns a new list
+>>> new_sorted_list is not my_list
+True
