@@ -1,4 +1,5 @@
->>> from 1-my_list import MyList  # Importar la clase MyList
+>>> import sys
+>>> from 1_my_list import MyList
 
 >>> my_list = MyList()  # Test: class creation
 >>> isinstance(my_list, MyList)
