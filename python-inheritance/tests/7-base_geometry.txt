@@ -12,21 +12,51 @@ Traceback (most recent call last):
 Exception: area() is not implemented
 
 # Test present: check integer_validator with valid input
->>> bg.integer_validator("test_value", 10)
+>>> bg.integer_validator("age", 1)
 
-# Test present: check integer_validator raises TypeError for non-integer
->>> bg.integer_validator("test_value", "string")
+# Test present: integer_validator raises ValueError for <= 0
+>>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
     ...
-TypeError: test_value must be an integer
+ValueError: age must be greater than 0
 
-# Test present: check integer_validator raises ValueError for <= 0
->>> bg.integer_validator("test_value", 0)
+>>> bg.integer_validator("age", -4)
 Traceback (most recent call last):
     ...
-ValueError: test_value must be greater than 0
+ValueError: age must be greater than 0
 
->>> bg.integer_validator("test_value", -5)
+# Test present: integer_validator raises TypeError for non-integer
+>>> bg.integer_validator("age", "4")
 Traceback (most recent call last):
     ...
-ValueError: test_value must be greater than 0
+TypeError: age must be an integer
+
+# Test present: integer_validator raises TypeError for tuple
+>>> bg.integer_validator("age", (4,))
+Traceback (most recent call last):
+    ...
+TypeError: age must be an integer
+
+# Test present: integer_validator raises TypeError for list
+>>> bg.integer_validator("age", [3])
+Traceback (most recent call last):
+    ...
+TypeError: age must be an integer
+
+# Test present: integer_validator raises TypeError for boolean
+>>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+    ...
+TypeError: age must be an integer
+
+# Test present: integer_validator raises TypeError for set
+>>> bg.integer_validator("age", {3, 4})
+Traceback (most recent call last):
+    ...
+TypeError: age must be an integer
+
+# Test present: integer_validator raises TypeError for None
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+    ...
+TypeError: age must be an integer
