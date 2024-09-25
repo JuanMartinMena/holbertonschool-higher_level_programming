@@ -19,4 +19,4 @@ class MyList(list):
 
         La lista original no se modifica, solo se imprime una versión ordenada.
         """
-        return sorted(self)
+        print(sorted(self))
