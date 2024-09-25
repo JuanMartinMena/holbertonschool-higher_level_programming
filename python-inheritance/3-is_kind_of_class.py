@@ -4,6 +4,7 @@ Este módulo define una función que verifica si un objeto es una instancia
 de una clase o de una clase que hereda de la clase especificada.
 """
 
+
 def is_kind_of_class(obj, a_class):
     """
     Verifica si el objeto es una instancia de la clase especificada o

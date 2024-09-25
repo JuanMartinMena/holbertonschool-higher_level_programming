@@ -4,6 +4,7 @@ Este módulo define una función que verifica si un objeto es una instancia
 de una clase que hereda (directa o indirectamente) de la clase especificada.
 """
 
+
 def inherits_from(obj, a_class):
     """
     Verifica si el objeto es una instancia de una clase que hereda de

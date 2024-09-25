@@ -4,6 +4,7 @@ Este módulo define una función que verifica si un objeto es exactamente
 una instancia de la clase especificada.
 """
 
+
 def is_same_class(obj, a_class):
     """
     Verifica si el objeto es exactamente una instancia de la clase.
