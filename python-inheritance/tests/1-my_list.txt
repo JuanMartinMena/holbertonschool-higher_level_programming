@@ -1,5 +1,4 @@
->>> import sys
->>> from 1_my_list import MyList
+>>> MyList = __import__('1-my_list').MyList
 
 >>> my_list = MyList()  # Test: class creation
 >>> isinstance(my_list, MyList)
@@ -36,3 +35,6 @@ True
 >>> new_sorted_list = my_list.print_sorted()  # Test: print_sorted() returns a new list
 >>> new_sorted_list is not my_list
 True
+
+>>> new_sorted_list
+[-1, 1, 2, 3, 5]
