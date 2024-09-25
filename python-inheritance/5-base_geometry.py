@@ -3,6 +3,7 @@
 Crea una clase vacia
 """
 
+
 class BaseGeometry:
     """
     crea una clase vacia
