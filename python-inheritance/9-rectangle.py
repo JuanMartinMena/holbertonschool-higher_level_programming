@@ -65,6 +65,7 @@ class Rectangle(BaseGeometry):
         Returns a string representation of the Rectangle instance.
 
         Returns:
-            str: String representation in the format [Rectangle] <width>/<height>.
+            str: String representation in the format [Rectangle]
+            <width>/<height>.
         """
         return f"[Rectangle] {self.__width}/{self.__height}"
