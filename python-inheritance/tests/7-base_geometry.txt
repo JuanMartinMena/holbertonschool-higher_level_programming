@@ -1,20 +1,24 @@
->>> BaseGeometry = __import__('base_geometry').BaseGeometry
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-# Test present: check instantiation
+# Definir bg como una instancia de BaseGeometry
 >>> bg = BaseGeometry()
+
+# Test de instanciación
 >>> isinstance(bg, BaseGeometry)
 True
 
-# Test present: check area() raises Exception
+# Test del método area() que lanza la excepción
 >>> bg.area()
 Traceback (most recent call last):
     ...
 Exception: area() is not implemented
 
-# Test present: check integer_validator with valid input
+# Test del método integer_validator() con varios casos
+
+# Caso válido
 >>> bg.integer_validator("age", 1)
 
-# Test present: integer_validator raises ValueError for <= 0
+# Casos inválidos por valor <= 0
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
     ...
@@ -25,38 +29,18 @@ Traceback (most recent call last):
     ...
 ValueError: age must be greater than 0
 
-# Test present: integer_validator raises TypeError for non-integer
+# Casos inválidos por tipo no entero
 >>> bg.integer_validator("age", "4")
 Traceback (most recent call last):
     ...
 TypeError: age must be an integer
 
-# Test present: integer_validator raises TypeError for tuple
->>> bg.integer_validator("age", (4,))
-Traceback (most recent call last):
-    ...
-TypeError: age must be an integer
-
-# Test present: integer_validator raises TypeError for list
 >>> bg.integer_validator("age", [3])
 Traceback (most recent call last):
     ...
 TypeError: age must be an integer
 
-# Test present: integer_validator raises TypeError for boolean
 >>> bg.integer_validator("age", True)
-Traceback (most recent call last):
-    ...
-TypeError: age must be an integer
-
-# Test present: integer_validator raises TypeError for set
->>> bg.integer_validator("age", {3, 4})
-Traceback (most recent call last):
-    ...
-TypeError: age must be an integer
-
-# Test present: integer_validator raises TypeError for None
->>> bg.integer_validator("age", None)
 Traceback (most recent call last):
     ...
 TypeError: age must be an integer

@@ -11,9 +11,10 @@ def is_same_class(obj, a_class):
 
     Args:
         obj: El objeto a verificar.
-        a_class: La clase con la que se va a comparar.
+        a_class: La clase con la que se va a comparar
 
     Returns:
-        True si obj es exactamente una instancia de a_class, de lo contrario False.
+        True si obj es exactamente una instancia
+        de a_class, de lo contrario False.
     """
     return type(obj) is a_class
