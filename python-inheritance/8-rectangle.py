@@ -55,3 +55,6 @@ class Rectangle(BaseGeometry):
         Returns a string representation of the Rectangle instance.
         """
         return f"[Rectangle] {self.__width}/{self.__height}"
+
+# Prueba issubclass
+print(issubclass(Rectangle, BaseGeometry))
