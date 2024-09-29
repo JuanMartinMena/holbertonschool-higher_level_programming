@@ -3,7 +3,6 @@
 This module defines a Rectangle class that inherits from BaseGeometry.
 """
 
-
 class BaseGeometry:
     """
     A base class for geometric shapes.
@@ -45,7 +44,7 @@ class Rectangle(BaseGeometry):
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
         """
-        super().integer_validator("width", width)
+        super().integer_validator("width", width)  # Llamada a super() para herencia
         super().integer_validator("height", height)
         self.__width = width
         self.__height = height
