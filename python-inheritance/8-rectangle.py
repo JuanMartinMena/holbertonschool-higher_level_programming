@@ -44,7 +44,6 @@ class Rectangle(BaseGeometry):
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
         """
-        # Llamar directamente a los métodos de BaseGeometry
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
@@ -55,6 +54,3 @@ class Rectangle(BaseGeometry):
         Returns a string representation of the Rectangle instance.
         """
         return f"[Rectangle] {self.__width}/{self.__height}"
-
-# Prueba issubclass
-print(issubclass(Rectangle, BaseGeometry))
