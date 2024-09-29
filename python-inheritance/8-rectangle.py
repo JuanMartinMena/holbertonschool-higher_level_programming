@@ -54,17 +54,3 @@ class Rectangle(BaseGeometry):
         Returns a string representation of the Rectangle instance.
         """
         return f"[Rectangle] {self.__width}/{self.__height}"
-
-    @property
-    def width(self):
-        """
-        Returns the width of the rectangle.
-        """
-        return self.__width
-
-    @property
-    def height(self):
-        """
-        Returns the height of the rectangle.
-        """
-        return self.__height
