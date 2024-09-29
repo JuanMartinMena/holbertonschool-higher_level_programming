@@ -3,6 +3,7 @@
 This module defines a Rectangle class that inherits from BaseGeometry.
 """
 
+
 class BaseGeometry:
     """
     A base class for geometric shapes.
@@ -10,7 +11,8 @@ class BaseGeometry:
 
     def area(self):
         """
-        Raises an Exception with the message that area is not implemented.
+        Raises an Exception with the message
+        that area is not implemented.
         """
         raise Exception("area() is not implemented")
 
