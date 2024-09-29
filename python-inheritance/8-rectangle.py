@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-This module defines a Rectangle class that inherits
-from BaseGeometry.
+This module defines a Rectangle class that inherits from BaseGeometry.
 """
 
 
@@ -19,8 +18,7 @@ class BaseGeometry:
 
     def integer_validator(self, name, value):
         """
-        Validates that a given value is an integer
-        greater than zero.
+        Validates that a given value is an integergreater than zero.
 
         Args:
             name (str): The name of the parameter to validate.
