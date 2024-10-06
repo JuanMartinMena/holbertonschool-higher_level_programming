@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Script that adds all command line arguments to a list and saves them to a file."""
+"""Script that adds all command line arguments
+to a list and saves them to a file."""
 import sys
 
 
@@ -8,7 +9,8 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 filename = "add_item.json"
 
-# Try to load the existing list from the file, or start with an empty list if the file doesn't exist
+# Try to load the existing list from the file,
+# or start with an empty list if the file doesn't exist
 try:
     items = load_from_json_file(filename)
 except FileNotFoundError:
