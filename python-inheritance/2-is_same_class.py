@@ -1,20 +1,15 @@
 #!/usr/bin/python3
-"""
-Este módulo define una función que verifica si un objeto es exactamente
-una instancia de la clase especificada.
+"""Module that defines a function to read a text file and print its content.
+
+This module contains a function `read_file` that reads a text file
+(UTF8) and prints its content to stdout.
 """
 
-
-def is_same_class(obj, a_class):
-    """
-    Verifica si el objeto es exactamente una instancia de la clase.
+def read_file(filename=""):
+    """Reads a text file (UTF8) and prints it to stdout.
 
     Args:
-        obj: El objeto a verificar.
-        a_class: La clase con la que se va a comparar
-
-    Returns:
-        True si obj es exactamente una instancia
-        de a_class, de lo contrario False.
+        filename (str): The name of the file to read. Defaults to an empty string.
     """
-    return type(obj) is a_class
+    with open(filename, 'r', encoding='utf-8') as file:
+        print(file.read(), end="")
