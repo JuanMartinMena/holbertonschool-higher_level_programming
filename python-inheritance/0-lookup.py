@@ -1,18 +1,15 @@
 #!/usr/bin/python3
-"""
-Este módulo define la función lookup, que devuelve
-la lista de atributos y métodos disponibles de un objeto.
+"""Defines a function to read a text file and print its contents to stdout.
+
+This module provides the function `read_file` that reads a text file
+(UTF-8) and prints its contents to the standard output.
 """
 
-
-def lookup(obj):
-    """
-    Devuelve una lista de los atributos y métodos disponibles del objeto dado.
+def read_file(filename=""):
+    """Reads a text file (UTF-8) and prints it to stdout.
 
     Args:
-        obj: El objeto a inspeccionar.
-
-    Returns:
-        list: Una lista de los atributos y métodos disponibles para el objeto.
+        filename (str): The name of the file to read. Defaults to an empty string.
     """
-    return dir(obj)
+    with open(filename, 'r', encoding='utf-8') as file:
+        print(file.read(), end="")
