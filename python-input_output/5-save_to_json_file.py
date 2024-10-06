@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Defines a function to save an object to a text file using JSON representation.
+"""Defines a function to save an object
+to a text file using JSON representation.
 
 This module provides the function `save_to_json_file` that serializes
 an object to a JSON-formatted string and writes it to a file.
