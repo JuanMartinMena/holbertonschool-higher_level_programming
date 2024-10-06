@@ -8,7 +8,8 @@ to a UTF-8 text file and returns the number of characters added.
 
 
 def append_write(filename="", text=""):
-    """Appends a string to a text file (UTF-8) and returns the number of characters added.
+    """Appends a string to a text file (UTF-8)
+    and returns the number of characters added.
 
     Args:
         filename (str): The name of the file to append to.
