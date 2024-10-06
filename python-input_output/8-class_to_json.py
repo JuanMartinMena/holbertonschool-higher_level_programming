@@ -3,7 +3,10 @@
 for JSON serialization of an object."""
 
 def class_to_json(obj):
-    """Returns the dictionary description for JSON serialization of an object."""
+    """
+    Returns the dictionary description for
+    JSON serialization of an object.
+    """
     return {
         key: value 
         for key, value in obj.__dict__.items()
