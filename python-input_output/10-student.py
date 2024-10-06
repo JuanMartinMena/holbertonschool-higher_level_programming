@@ -13,7 +13,6 @@ class Student:
 
     def to_json(self, attrs=None):
         """Retrieve a dictionary representation of the Student instance.
-        
         If attrs is a list of strings, only attribute names contained in
         this list are retrieved.
         """
@@ -23,5 +22,4 @@ class Student:
                 'last_name': self.last_name,
                 'age': self.age
             }
-        
         return {key: getattr(self, key) for key in attrs if hasattr(self, key)}
