@@ -1,45 +1,32 @@
 #!/usr/bin/python3
-class Student:
-    """
-    A class that defines a student by their first name, last name, and age.
-    """
+"""Module that defines a Student class."""
 
+
+class Student:
+    """A class representing a student."""
 
     def __init__(self, first_name, last_name, age):
-        """
-        Initializes a new Student instance.
-
-        Args:
-            first_name (str): The student's first name.
-            last_name (str): The student's last name.
-            age (int): The student's age.
-        """
+        """Initialize a new student instance."""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """
-        Retrieves a dictionary representation of a Student instance.
-
-        Args:
-            attrs (list, optional): A list of attribute names to retrieve.
-
-        Returns:
-            dict: A dictionary containing the specified attributes of the student
-                  or all attributes if attrs is None.
+        """Retrieve a dictionary representation of the Student instance.
+        
+        If attrs is a list of strings, only attribute names contained in
+        this list are retrieved.
         """
         if attrs is None:
-            return self.__dict__
+            return {
+                'first_name': self.first_name,
+                'last_name': self.last_name,
+                'age': self.age
+            }
         
-        return {attr: getattr(self, attr) for attr in attrs if hasattr(self, attr)}
+        return {key: getattr(self, key) for key in attrs if hasattr(self, key)}
 
     def reload_from_json(self, json):
-        """
-        Replaces all attributes of the Student instance with the values from the provided dictionary.
-
-        Args:
-            json (dict): A dictionary containing the new values for the attributes.
-        """
+        """Replace all attributes of the Student instance from a json dictionary."""
         for key, value in json.items():
             setattr(self, key, value)
