@@ -1,0 +1,17 @@
+import csv
+
+with open('archivo.csv', mode='w', newline='') as file:
+    # Crea el objeto DictWriter
+    writer = csv.DictWriter(file, fieldnames=["columna1", "columna2", "columna3"])
+
+    # Escribe los encabezados (opcional)
+    writer.writeheader()
+
+    # Escribe las filas, cada fila es un diccionario
+    writer.writerow({"columna1": "valor1", "columna2": "valor2", "columna3": "valor3"})
+
+
+writer.writeheader()
+# Esto escribirá algo como:
+# columna1,columna2,columna3
+
