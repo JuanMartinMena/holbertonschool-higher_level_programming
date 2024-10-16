@@ -9,13 +9,14 @@ users = {}
 # Ruta principal de la API
 @app.route('/', methods=['GET'])
 def home():
-    return "Welcome to the user management API!"
+    # Devuelve un mensaje de bienvenida como cadena de texto
+    return jsonify({"message": "Welcome to the user management API!"}), 200
 
 # Ruta para obtener la lista de usuarios
 @app.route('/data', methods=['GET'])
 def get_data():
     # Devuelve una lista de los nombres de usuarios
-    return jsonify(list(users.keys()))
+    return jsonify(list(users.keys())), 200
 
 # Ruta para agregar un nuevo usuario
 @app.route('/add_user', methods=['POST'])
@@ -47,7 +48,7 @@ def add_user():
 def get_user(username):
     # Verifica si el usuario existe
     if username in users:
-        return jsonify(users[username])
+        return jsonify(users[username]), 200
     else:
         return jsonify({"error": "User not found"}), 404
 
