@@ -1,56 +1,61 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
+app.config['DEBUG'] = True
 
-# Diccionario que almacenará los usuarios
-users = {
-    "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
-    "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
-}
+# Diccionario para almacenar los usuarios
+users = {}
 
-@app.route('/')
+# Ruta principal de la API
+@app.route('/', methods=['GET'])
 def home():
-    return "Welcome to the Flask API!"
+    return "Welcome to the user management API!"
 
+# Ruta para obtener la lista de usuarios
 @app.route('/data', methods=['GET'])
 def get_data():
+    # Devuelve una lista de los nombres de usuarios
     return jsonify(list(users.keys()))
 
-@app.route('/status', methods=['GET'])
-def status():
-    return "OK"
-
-@app.route('/users/<username>', methods=['GET'])
-def get_user(username):
-    user = users.get(username)
-    if user:
-        return jsonify(user)
-    else:
-        return jsonify({"error": "User not found"}), 404
-
+# Ruta para agregar un nuevo usuario
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    data = request.get_json()
+    data = request.get_json()  # Obtén los datos del cuerpo de la solicitud
     
+    # Verifica si los datos son válidos y si tienen el campo 'username'
     if not data or 'username' not in data:
         return jsonify({"error": "Username is required"}), 400
     
     username = data['username']
     
+    # Verifica si el nombre de usuario ya existe
     if username in users:
-        return jsonify({"error": "User already exists"}), 400
+        return jsonify({"error": "Username already exists"}), 400
     
+    # Agrega el usuario al diccionario
     users[username] = {
         "username": username,
-        "name": data.get('name'),
-        "age": data.get('age'),
-        "city": data.get('city')
+        "name": data.get('name', ''),
+        "age": data.get('age', 0),
+        "city": data.get('city', '')
     }
     
-    return jsonify({
-        "message": "User added",
-        "user": users[username]
-    }), 201
+    return jsonify({"message": "User added", "user": users[username]}), 201
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# Ruta para obtener los detalles de un usuario por su nombre de usuario
+@app.route('/users/<username>', methods=['GET'])
+def get_user(username):
+    # Verifica si el usuario existe
+    if username in users:
+        return jsonify(users[username])
+    else:
+        return jsonify({"error": "User not found"}), 404
+
+# Ruta para verificar el estado del API
+@app.route('/status', methods=['GET'])
+def get_status():
+    return jsonify({"status": "API is running"}), 200
+
+# Corre la aplicación de Flask
+if __name__ == '__main__':
+    app.run()
