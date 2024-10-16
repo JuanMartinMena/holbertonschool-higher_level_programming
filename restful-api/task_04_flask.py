@@ -10,7 +10,7 @@ users = {}
 @app.route('/', methods=['GET'])
 def home():
     # Devuelve un mensaje de bienvenida como cadena de texto
-    return jsonify({"message": "Welcome to the user management API!"}), 200
+    return jsonify({"message": "Welcome to the Flask API!"}), 200
 
 # Ruta para obtener la lista de usuarios
 @app.route('/data', methods=['GET'])
