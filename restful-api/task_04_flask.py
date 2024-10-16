@@ -36,7 +36,7 @@ def add_user():
     # Agrega el usuario al diccionario
     users[username] = {
         "username": username,
-        "name": data.get('name', ''),
+        "name": data.get('name', ''),  # Valores por defecto
         "age": data.get('age', 0),
         "city": data.get('city', '')
     }
@@ -55,7 +55,8 @@ def get_user(username):
 # Ruta para verificar el estado del API
 @app.route('/status', methods=['GET'])
 def get_status():
-    return jsonify({"status": "API is running"}), 200
+    # Devuelve un mensaje simple con el estado
+    return jsonify({"status": "OK"}), 200
 
 # Corre la aplicación de Flask
 if __name__ == '__main__':
