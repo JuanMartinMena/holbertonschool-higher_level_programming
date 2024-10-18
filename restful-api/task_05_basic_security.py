@@ -28,6 +28,11 @@ def verify_password(username, password):
 def basic_protected():
     return jsonify({"message": "Basic Auth: Access Granted"})
 
+# Manejador de error para autenticación básica
+@auth.error_handler
+def auth_error():
+    return jsonify({"error": "Unauthorized access"}), 401
+
 # Ruta de login para generar JWT
 @app.route('/login', methods=['POST'])
 def login():
