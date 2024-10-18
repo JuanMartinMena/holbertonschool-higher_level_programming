@@ -29,9 +29,6 @@ def add_user():
     
     username = data['username']
     
-    # Verifica si el nombre de usuario ya existe
-    if username in users:
-    
     # Agrega el usuario al diccionario
     users[username] = {
         "username": username,
