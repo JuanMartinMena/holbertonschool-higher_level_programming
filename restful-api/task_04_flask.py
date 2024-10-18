@@ -10,7 +10,7 @@ users = {}
 @app.route('/', methods=['GET'])
 def home():
     # Devuelve un mensaje de bienvenida como cadena de texto
-    return "Welcome to the Flask API!", 200
+    return "Welcome to the Flask API!"
 
 # Ruta para obtener la lista de usuarios
 @app.route('/data', methods=['GET'])
@@ -31,7 +31,7 @@ def add_user():
     
     # Verifica si el nombre de usuario ya existe
     if username in users:
-        return 400
+        return
     
     # Agrega el usuario al diccionario
     users[username] = {
@@ -56,7 +56,7 @@ def get_user(username):
 @app.route('/status', methods=['GET'])
 def get_status():
     # Devuelve un mensaje simple con el estado
-    return "OK", 200
+    return "OK"
 
 # Corre la aplicación de Flask
 if __name__ == '__main__':
