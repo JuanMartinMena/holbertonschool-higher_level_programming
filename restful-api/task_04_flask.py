@@ -10,7 +10,7 @@ users = {}
 @app.route('/', methods=['GET'])
 def home():
     # Devuelve un mensaje de bienvenida como cadena de texto
-    return jsonify({"message": "Welcome to the Flask API!"}), 200
+    return "Welcome to the Flask API!", 200
 
 # Ruta para obtener la lista de usuarios
 @app.route('/data', methods=['GET'])
@@ -31,7 +31,7 @@ def add_user():
     
     # Verifica si el nombre de usuario ya existe
     if username in users:
-        return jsonify({"error": "Username already exists"}), 400
+        return 400
     
     # Agrega el usuario al diccionario
     users[username] = {
@@ -56,7 +56,7 @@ def get_user(username):
 @app.route('/status', methods=['GET'])
 def get_status():
     # Devuelve un mensaje simple con el estado
-    return jsonify({"status": "OK"}), 200
+    return "OK", 200
 
 # Corre la aplicación de Flask
 if __name__ == '__main__':
