@@ -31,7 +31,6 @@ def add_user():
     
     # Verifica si el nombre de usuario ya existe
     if username in users:
-        return
     
     # Agrega el usuario al diccionario
     users[username] = {
