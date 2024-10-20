@@ -1,69 +1,77 @@
 from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
+from flask_jwt_extended import (
+    JWTManager, create_access_token, jwt_required, get_jwt_identity
+)
+from functools import wraps
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
-app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
+
+# Secret key for JWT
+app.config['JWT_SECRET_KEY'] = 'your_secret_key'
 jwt = JWTManager(app)
 
-# Base de datos de usuarios en memoria
+# Users data with hashed passwords
 users = {
     "user1": {"username": "user1", "password": generate_password_hash("password"), "role": "user"},
     "admin1": {"username": "admin1", "password": generate_password_hash("password"), "role": "admin"}
 }
 
-# Verificar credenciales para autenticación básica
+# Basic Authentication verification
 @auth.verify_password
 def verify_password(username, password):
-    user = users.get(username)
-    if user and check_password_hash(user['password'], password):
-        return username
+    if username in users and check_password_hash(users[username]['password'], password):
+        return users[username]
     return None
 
-# Ruta protegida con autenticación básica
-@app.route('/basic-protected')
+# Protected route with basic authentication
+@app.route('/basic-protected', methods=['GET'])
 @auth.login_required
 def basic_protected():
-    return jsonify({"message": "Basic Auth: Access Granted"})
+    return jsonify({"message": "Basic Auth: Access Granted"}), 200
 
-# Manejador de error para autenticación básica
-@auth.error_handler
-def auth_error():
-    return jsonify({"error": "Unauthorized access"}), 401
-
-# Ruta de login para generar JWT
+# Login route for JWT
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
-    user = users.get(username)
 
-    if not user or not check_password_hash(user['password'], password):
-        return jsonify({"error": "Invalid credentials"}), 401
+    if not username or not password:
+        return jsonify({"error": "Missing username or password"}), 400
 
-    # Crear token JWT
-    access_token = create_access_token(identity={"username": username, "role": user["role"]})
-    return jsonify(access_token=access_token)
+    user = users.get(username, None)
+    if user and check_password_hash(user['password'], password):
+        # Create JWT token
+        access_token = create_access_token(identity={"username": username, "role": user["role"]})
+        return jsonify(access_token=access_token), 200
+    return jsonify({"error": "Invalid credentials"}), 401
 
-# Ruta protegida con JWT
-@app.route('/jwt-protected')
+# JWT Protected route
+@app.route('/jwt-protected', methods=['GET'])
 @jwt_required()
 def jwt_protected():
-    return jsonify({"message": "JWT Auth: Access Granted"})
+    return jsonify({"message": "JWT Auth: Access Granted"}), 200
 
-# Ruta protegida para administradores
-@app.route('/admin-only')
-@jwt_required()
+# Admin-only route with JWT and role check
+def admin_required(fn):
+    @wraps(fn)
+    @jwt_required()
+    def wrapper(*args, **kwargs):
+        user = get_jwt_identity()
+        if user['role'] != 'admin':
+            return jsonify({"error": "Admin access required"}), 403
+        return fn(*args, **kwargs)
+    return wrapper
+
+@app.route('/admin-only', methods=['GET'])
+@admin_required
 def admin_only():
-    current_user = get_jwt_identity()
-    if current_user["role"] != "admin":
-        return jsonify({"error": "Admin access required"}), 403
-    return jsonify({"message": "Admin Access: Granted"})
+    return jsonify({"message": "Admin Access: Granted"}), 200
 
-# Manejadores de errores personalizados para JWT
+# Error handlers for JWT
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
     return jsonify({"error": "Missing or invalid token"}), 401
