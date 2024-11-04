@@ -5,6 +5,7 @@ todos los estados de la tabla 'states' que coinciden con el
 nombre del estado proporcionado como argumento.
 """
 
+
 import MySQLdb
 import sys
 
@@ -33,6 +34,7 @@ def main():
         "WHERE name = '{}' "
         "ORDER BY id ASC"
     ).format(state_name)
+    
     # Ejecutar la consulta SQL
     cursor.execute(query)
 
