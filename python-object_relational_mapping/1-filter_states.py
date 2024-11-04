@@ -29,7 +29,9 @@ def main():
     cursor = db.cursor()
 
     # Ejecutar la consulta SQL para seleccionar estados que comienzan con 'N'
-    cursor.execute("SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id ASC")
+    cursor.execute(
+        "SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id ASC"
+    )
 
     # Obtener todos los resultados
     results = cursor.fetchall()
