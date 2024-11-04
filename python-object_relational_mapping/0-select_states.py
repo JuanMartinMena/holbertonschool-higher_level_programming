@@ -17,13 +17,12 @@ def main():
 
     # Conectar a la base de datos MySQL
     db = MySQLdb.connect(
-        host="localhost", 
-        port=3306, 
-        user=username, 
-        passwd=password, 
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
         db=database
     )
-
     # Crear un objeto cursor
     cursor = db.cursor()
 
