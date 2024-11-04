@@ -5,10 +5,8 @@ todos los estados de la tabla 'states' que coinciden con el
 nombre del estado proporcionado como argumento.
 """
 
-
 import MySQLdb
 import sys
-
 
 def main():
     # Obtener los argumentos de la línea de comandos
@@ -32,7 +30,7 @@ def main():
     # Crear la consulta SQL utilizando el argumento de entrada
     query = (
         "SELECT * FROM states "
-        "WHERE LOWER(name) = LOWER('{}') "
+        "WHERE BINARY name = '{}' "
         "ORDER BY id ASC"
     ).format(state_name)
 
@@ -49,7 +47,6 @@ def main():
     # Cerrar el cursor y la conexión
     cursor.close()
     db.close()
-
 
 # Asegurarse de que el script se ejecute solo cuando se ejecuta directamente
 if __name__ == "__main__":
