@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Este módulo se conecta a una base de datos MySQL y recupera
+todos los estados de la tabla 'states' en la base de datos especificada.
+"""
+
 import MySQLdb
 import sys
 
