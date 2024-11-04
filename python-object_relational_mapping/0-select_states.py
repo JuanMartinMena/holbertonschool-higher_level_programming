@@ -4,8 +4,10 @@ Este módulo se conecta a una base de datos MySQL y recupera
 todos los estados de la tabla 'states' en la base de datos especificada.
 """
 
+
 import MySQLdb
 import sys
+
 
 def main():
     # Obtener los argumentos de la línea de comandos
@@ -14,7 +16,13 @@ def main():
     database = sys.argv[3]
 
     # Conectar a la base de datos MySQL
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+    db = MySQLdb.connect(
+        host="localhost", 
+        port=3306, 
+        user=username, 
+        passwd=password, 
+        db=database
+    )
 
     # Crear un objeto cursor
     cursor = db.cursor()
@@ -33,6 +41,8 @@ def main():
     cursor.close()
     db.close()
 
-# Asegurarse de que el script se ejecute solo cuando se ejecuta directamente
+
+# Asegurarse de que el script se ejecute solo cuando
+# se ejecuta directamente
 if __name__ == "__main__":
     main()
