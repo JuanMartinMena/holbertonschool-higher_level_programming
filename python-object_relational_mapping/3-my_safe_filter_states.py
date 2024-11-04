@@ -51,7 +51,6 @@ def main():
     db.close()
 
 
-
 # Asegurarse de que el script se ejecute solo
 # cuando se ejecuta directamente
 if __name__ == "__main__":
