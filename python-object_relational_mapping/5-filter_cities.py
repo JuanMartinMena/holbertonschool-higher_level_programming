@@ -35,7 +35,7 @@ def main():
     WHERE states.name = %s
     ORDER BY cities.id ASC
     """
-    
+
     # Ejecutar la consulta SQL con el estado como parámetro
     cursor.execute(query, (state_name,))
 
