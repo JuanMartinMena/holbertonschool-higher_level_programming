@@ -8,6 +8,7 @@ nombre del estado proporcionado como argumento.
 import MySQLdb
 import sys
 
+
 def main():
     # Obtener los argumentos de la línea de comandos
     username = sys.argv[1]
@@ -47,6 +48,7 @@ def main():
     # Cerrar el cursor y la conexión
     cursor.close()
     db.close()
+
 
 # Asegurarse de que el script se ejecute solo cuando se ejecuta directamente
 if __name__ == "__main__":
