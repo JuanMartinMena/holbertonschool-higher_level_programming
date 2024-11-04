@@ -32,7 +32,7 @@ def main():
     # Crear la consulta SQL utilizando el argumento de entrada
     query = (
         "SELECT * FROM states "
-        "WHERE name = '{}' "
+        "WHERE LOWER(name) = LOWER('{}') "
         "ORDER BY id ASC"
     ).format(state_name)
 
