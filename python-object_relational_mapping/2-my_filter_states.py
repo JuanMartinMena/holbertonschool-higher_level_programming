@@ -10,6 +10,7 @@ import MySQLdb
 import sys
 
 def main():
+    
     # Obtener los argumentos de la línea de comandos
     username = sys.argv[1]
     password = sys.argv[2]
@@ -34,7 +35,7 @@ def main():
         "WHERE name = '{}' "
         "ORDER BY id ASC"
     ).format(state_name)
-    
+
     # Ejecutar la consulta SQL
     cursor.execute(query)
 
